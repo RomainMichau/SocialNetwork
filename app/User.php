@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Hootlex\Friendships\Traits\Friendable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -12,7 +13,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'picture',
     ];
 
     /**
@@ -23,4 +24,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function setPictureAttribute($picture){
+        //dd($picture);
+        if(is_object($picture) && $picture->isValid()){
+            $picture->move(public_path(). "/img/pictures","{$this->id}.png");
+            $this->attributes['picture'] = true;
+        }
+    }
+    use Friendable;
+
 }

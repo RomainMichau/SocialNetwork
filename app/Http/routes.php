@@ -18,3 +18,16 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/about', 'UserController@show');
+Route::get('/profil', 'UserController@edit');
+Route::post('/profil', 'UserController@update');
+Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+
+
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    Route::resource('friends', 'FriendsController', ['except' => ['update', 'create']]);
+        Route::put('friends/{friends}/{status}', 'FriendsController@update')->name('admin.friends.update');
+        Route::get('friends/{friends}', 'FriendsController@create')->name('admin.friends.create');
+});
