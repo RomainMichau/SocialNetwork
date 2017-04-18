@@ -11,8 +11,8 @@
                                 <a href="{{ route('admin.users.show', $user->id) }}" class="text-capitalize">{{ $user->name }}</a>
                                 <small><span class="label label-info btn-md">{{ Auth::user()->getNameFriendship($user) }}</span></small>
                             </h2>
-                            @if($user->picture)
-                                <img src="/img/pictures/{{$user->id}}.png" style="width:80px">
+                            @if($user->profil)
+                                <img src="/img/profils/{{$user->id}}.png" style="width:304px">
                             @else
                                 <p>no Picture</p>
                             @endif

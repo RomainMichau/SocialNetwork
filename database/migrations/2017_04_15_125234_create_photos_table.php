@@ -12,7 +12,9 @@ class CreatePhotosTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('photos', function (Blueprint $table) {
+            $table->increments('id');
+        });
     }
 
     /**
@@ -22,6 +24,6 @@ class CreatePhotosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('photos');
     }
 }

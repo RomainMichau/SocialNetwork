@@ -13,7 +13,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'picture',
+        'name', 'email', 'password', 'profil',
     ];
 
     /**
@@ -25,11 +25,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function setPictureAttribute($picture){
-        //dd($picture);
-        if(is_object($picture) && $picture->isValid()){
-            $picture->move(public_path(). "/img/pictures","{$this->id}.png");
-            $this->attributes['picture'] = true;
+    public function posts(){
+        return $this->belongsToMany('App\Post');
+    }
+
+    public function setProfilAttribute($profil){
+        if(is_object($profil) && $profil->isValid()){
+            $profil->move(public_path(). "/img/profils","{$this->id}.png");
+            $this->attributes['profil'] = true;
         }
     }
     use Friendable;

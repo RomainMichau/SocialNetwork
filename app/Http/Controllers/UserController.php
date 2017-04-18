@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function __contruct(){
-        dd($auth);
         $this->middleware('auth');
     }
     public function edit(Guard $auth){
@@ -21,11 +20,11 @@ class UserController extends Controller
     public function update(Guard $auth, Request $request){
         $this->validate($request, [
             'name' => 'required|max:255',
-            'picture' => 'image',
+            'profil' => 'image',
         ]);
         $user = $auth->user();
-        $user->update($request->only('name', 'picture'));
-        return  redirect('/about')->with('success', 'profil modifié');
+        $user->update($request->only('name', 'profil'));
+        return  redirect('/about')->with('message', 'profil modifié');
     }
     public function show(){
         $user = Auth::user();

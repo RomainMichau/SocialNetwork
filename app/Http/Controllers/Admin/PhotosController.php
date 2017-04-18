@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Photo;
+use App\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PhotosController extends Controller
 {
@@ -26,7 +30,7 @@ class PhotosController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.photos.create');
     }
 
     /**
@@ -37,7 +41,25 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = Validator::make($request->all(), [
+            'picture'      => 'required|image',
+        ]);
+        if($validation->fails())
+        {
+            return redirect()->route('admin.photos.create')->withInput($request->all())->withErrors($validation->errors());
+        }
+        else
+        {
+            $photo = new Photo;
+            $photo->save();
+            $request['picture']->move(public_path(). "/img/photos","{$photo->id}.png");
+            $post = new Post;
+            $post->user_id = Auth::user()->id;
+            $post->post_id = $photo->id;
+            $post->type = 0;
+            $post->save();
+            return redirect()->route('admin.photos.create')->with('message', 'New photo!!!');
+        }
     }
 
     /**

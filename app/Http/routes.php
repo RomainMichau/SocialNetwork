@@ -26,6 +26,10 @@ Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
+    Route::resource('posts', 'PostsController');
+    Route::resource('photos', 'PhotosController');
+    Route::resource('videos', 'VideosController');
+    Route::resource('events', 'EventsController');
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     Route::resource('friends', 'FriendsController', ['except' => ['update', 'create']]);
         Route::put('friends/{friends}/{status}', 'FriendsController@update')->name('admin.friends.update');
