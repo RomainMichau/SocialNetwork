@@ -10,7 +10,7 @@
                             <a href="{{ route('users.show', $user->id) }}">{{ ucwords($user->name) }}</a>
                         </h2>
                         @if($user->profil)
-                            <img src="/img/profils/{{$user->id}}.png" style="width:80px">
+                            <img src={{url("/img/profils/{$user->id}.png")}} style="width:80px">
                         @else
                             <p>no Picture</p>
                         @endif

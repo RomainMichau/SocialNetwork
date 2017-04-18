@@ -14,7 +14,7 @@
                                 <small><span class="label label-info btn-md">{{ Auth::user()->getNameFriendship($user) }}</span></small>
                             </h2>
                             @if($user->profil)
-                                <img src="/img/profils/{{$user->id}}.png" style="width:304px">
+                                <img src={{url("/img/profils/{$user->id}.png")}} style="width:80px">
                             @else
                                 <p>no Picture</p>
                             @endif
