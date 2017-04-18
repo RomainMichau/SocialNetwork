@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -17,8 +18,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::get();
-        return view('admin.posts.index', compact('posts'));
+        $posts = Auth::user()->posts()->with('comments')->with('likes')->get();
+        return view('admin.posts.index',compact('posts'));
     }
 
     /**

@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
+
 class EventsController extends Controller
 {
     /**
@@ -26,6 +27,7 @@ class EventsController extends Controller
         {
             $events[] = Event::findOrFail($post->post_id);
         }
+        $events = collect($events)->sortBy('date');
         return view('admin.events.index',compact('events'));
     }
 
