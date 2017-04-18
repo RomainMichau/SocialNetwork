@@ -7,9 +7,10 @@
                 <div class="container">
                     <div class="row">
                     @if($post->type == 0)
-                        <img src="/img/photos/{{$post->post_id}}.png">
+                        <img src={{url("/img/photos/{$post->post_id}.png")}}>
                     @elseif($post->type == 1)
-                        <video controls src="/img/videos/{{$post->post_id}}.mp4">Ici la description alternative</video>
+                        <video controls src={{url("/img/videos/{$post->post_id}.mp4")}}>Ici la description alternative</video>
+                        @elseif($post->type == 2)
                     @endif
                     </div>
                 </div>
