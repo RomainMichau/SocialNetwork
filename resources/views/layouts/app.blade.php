@@ -14,11 +14,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href={{url("/css/bootstrap.min.css")}}>
-<<<<<<< HEAD
 	<link rel="stylesheet" href={{url("/css/style.css")}}>
-=======
-    <link rel="stylesheet" href={{url("/css/style.css")}}>
->>>>>>> a3c843fa1ef28b1f7264ca8634bd89bd601bdc29
+
+
 
 
     <link rel="shortcut icon" type="image/x-icon" href="http://blindlibrary.utah.gov/images/logoBook.gif">
