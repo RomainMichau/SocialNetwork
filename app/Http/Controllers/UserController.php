@@ -28,6 +28,8 @@ class UserController extends Controller
     }
     public function show(){
         $user = Auth::user();
-        return view('user.show', compact('user'));
+		$posts = Auth::user()->posts()->with('comments')->with('likes')->get();
+		$posts = $posts->sortBy('created_at')->reverse();
+        return view('user.show', compact('user', 'posts'));
     }
 }

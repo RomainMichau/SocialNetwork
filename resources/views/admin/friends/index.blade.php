@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>My Relations</h1>
+                <h1 style="text-align:center">Mes Kamarades</h1>
                 <div class="col-md-12">
                     @forelse($users as $user)
                         @if(Auth::user() != $user)

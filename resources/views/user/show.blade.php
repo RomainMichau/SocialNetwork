@@ -21,8 +21,20 @@
 		</div>
 		
 		<div class="row">
-			<div class="col-md-4">
-				
+			<br><br>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4" style="padding-left: 100px">
+						<a href={{url('/admin/photos/create')}} class="btn btn-primary btn-lg active"  role="button" aria-pressed="true">Upload une Photo</a>
+					</div>
+					<div class="col-md-4" style="padding-left: 100px">
+						<a href={{url('/admin/videos/create')}} class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Upload une Vidéo</a>
+					</div>
+					<div class="col-md-4" style="padding-left: 100px">
+						<a href={{url('/admin/events/create')}} class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Partager un évènement</a>
+					</div>
+				</div>
+				@include('admin.posts.mur_perso')
 			</div>
 		</div>
 	</div>
