@@ -59,7 +59,7 @@ class EventsController extends Controller
         $post->post_id = $event->id;
         $post->type = 2;
         $post->save();
-        return redirect()->route('admin.events.index')->with('message', 'New Event!!!');;
+        return redirect()->route('about')->with('message', 'New Event!!!');;
 
 
 

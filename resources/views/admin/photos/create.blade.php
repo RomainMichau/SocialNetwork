@@ -1,43 +1,33 @@
 @extends('layouts.app')
+
 @section('content')
-    <div class="container vertical-center">
+    <div class="container">
         <div class="row">
-            <h1>My book's list</h1>
-            @forelse($posts as $post)
-                <div class="container">
-                    <div class="row">
-                        @if($post->type == 0)
-                            <img src="/img/photos/{{$post->post_id}}.png">
-                            @forelse($post->comments as $comment)
-                                <p>{{ $comment->comment }}</p>
-                                <p>{{ $comment->user->name }}</p>
-                            @empty
-                                <p>no comment</p>
-                            @endforelse
-                            @forelse($post->likes as $like)
-                                <p>{{ $like->like }}</p>
-                            @empty
-                                <p>no like</p>
-                            @endforelse
-                        @elseif($post->type == 1)
-                            <video controls src="/img/videos/{{$post->post_id}}.mp4">Ici la description alternative</video>
-                            @forelse($post->comments as $comment)
-                                <p>{{ $comment->comment }}</p>
-                                <p>{{ $comment->user->name }}</p>
-                            @empty
-                                <p>no comment</p>
-                            @endforelse
-                            @forelse($post->likes as $like)
-                                <p>{{ $like->like }}</p>
-                            @empty
-                                <p>no like</p>
-                            @endforelse
-                        @endif
+            <div class="col-lg-5">
+                <h1>Add Photo</h1>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/photos')}}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            @include('errors')
+
+                            <div class="form-group">
+                                <label for="picture" class="col-md-4 control-label">Picture</label>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control-file" id="picture" name="picture">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">Add Photo</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            @empty
-                <p>No Book</p>
-            @endforelse
+            </div>
         </div>
     </div>
-@endsection
+   @endsection
