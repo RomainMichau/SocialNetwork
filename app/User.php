@@ -26,7 +26,13 @@ class User extends Authenticatable
     ];
 
     public function posts(){
-        return $this->belongsToMany('App\Post');
+        return $this->hasMany('App\Post');
+    }
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+    public function likes(){
+        return $this->hasMany('App\Like');
     }
 
     public function setProfilAttribute($profil){

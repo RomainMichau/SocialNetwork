@@ -93,6 +93,42 @@ class dumpdata extends Seeder
         $post->type = 2;
         $post->save();
 
+        $comment = new \App\Comment();
+        $comment->comment = "lol";
+        $comment->user_id = 1;
+        $comment->post_id = 1;
+        $comment->save();
+
+        $comment = new \App\Comment();
+        $comment->comment = "lul";
+        $comment->user_id = 2;
+        $comment->post_id = 1;
+        $comment->save();
+
+        $comment = new \App\Comment();
+        $comment->comment = "pull";
+        $comment->user_id = 2;
+        $comment->post_id = 2;
+        $comment->save();
+
+        $like = new \App\Like();
+        $like->like = 0;
+        $like->user_id = 3;
+        $like->post_id = 4;
+        $like->save();
+
+        $like = new \App\Like();
+        $like->like = 0;
+        $like->user_id = 2;
+        $like->post_id = 3;
+        $like->save();
+
+        $like = new \App\Like();
+        $like->like = 0;
+        $like->user_id = 1;
+        $like->post_id = 5;
+        $like->save();
+
 
 
 
