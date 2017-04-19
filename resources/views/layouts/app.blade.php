@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sociale</title>
+    <title>K-Sos</title>
 
 
     <!-- Fonts -->
@@ -44,7 +44,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Sociale
+                    K-Sos
                 </a>
             </div>
 
