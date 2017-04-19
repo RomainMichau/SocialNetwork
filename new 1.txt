@@ -1,0 +1,4 @@
+les outils utilisé:
+Laravel: laravel est un framework permettant de grandemement simplifier notre trvail. Un framework est un ensemble de logiciel permettant d'optimiser la creeation d'un site ou d'un logiciel. Laravel 	utilise le patron Modele-Vue-Controlleur, permettant ainsi une meilleur modulaité du projet. Il s'agit egalement d'un framework fonctionnant en POO. Tout est placé dans des classes
+Bootsrap: bootsrap est un outil conenu dans laravel. Il permet de simplififer la mise en forme du site web. Le bootsrap genere du code en html, css et Java script
+Base de donnée/MysQl: Le sql permet de faire des requetes ds la base donnée La BDD contient toute les informations des utilisateurs.
