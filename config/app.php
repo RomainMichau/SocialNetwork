@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Hootlex\Friendships\FriendshipsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
 
 
 

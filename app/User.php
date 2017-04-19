@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Cmgmyr\Messenger\Traits\Messagable;
 use Hootlex\Friendships\Traits\Friendable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -42,5 +43,6 @@ class User extends Authenticatable
         }
     }
     use Friendable;
+    use Messagable;
 
 }
