@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-        return view('admin.users.show', compact('user'));
+        $posts = User::findOrFail($id)->posts()->with('comments')->with('likes')->get();
+        return view('admin.users.show', compact('posts'));
     }
 }
