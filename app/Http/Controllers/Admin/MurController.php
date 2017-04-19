@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Like;
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -57,9 +59,16 @@ class MurController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $user = Auth::user();
+        $like=new Like;
+        $like->like=$request->avis;
+        $like->post_id=$post->id;
+        $like->user_id=$user->id;
+        $like->save();
+        return redirect()->route('admin.mur.index');
     }
 
     /**
@@ -93,7 +102,7 @@ class MurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
