@@ -52,11 +52,12 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
-                        <li><a href="{{ url('/admin/mur') }}">Chronologie</a></li>
+                        <li><a href="{{ url('/admin/events') }}">Chronologie</a></li>
                         <li><a href="{{ url('/about') }}">A Propos</a></li>
                         <li><a href="{{ url('/admin/users') }}">Utilisateur</a></li>
                         <li><a href="{{ url('/admin/friends') }}">Amis</a></li>
                         <li><a href="{{ url('#') }}">Photos</a></li>
+                        <li><a href="{{ url('/admin/mur') }}">Kotidien</a></li>
                     @else
                         <li><a href="{{ url('/users') }}">Utilisateur</a></li>
                     @endif
