@@ -1,3 +1,13 @@
+
+.nonbtn{display:inline-block;margin-bottom:0;font-weight:normal;text-align:center;vertical-align:middle;-ms-touch-action:manipulation;background-image:none;border:1px solid transparent;white-space:nowrap;padding:10px 15px;font-size:15px;line-height:1.42857143;
+    border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+
+.nonbtn-sm{padding:6px 9px;font-size:13px;line-height:1.5;border-radius:3px}
+
+.nonbtn-primary{color:#ffffff;background-color:#8aa4be;border-color:#2c3e50}
+
+.selnonbtn-primary{color:#ffffff;background-color:#286090;border-color:#2c3e50}
+
 .absolute {
 	background-color: rgba(255,255,255,0.8);
 	position: absolute;
@@ -24,6 +34,7 @@
 .centrer2 {
 	padding-top: 50px;
 }
+<<<<<<< HEAD
 
 .publi {
 	margin: 20px auto;
@@ -32,3 +43,5 @@
 	box-sizing: border-box;
 	border: solid 1px #444;
 }
+=======
+>>>>>>> 7f0f882bffa87e62440142f501a796faa7cdfedd
