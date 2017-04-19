@@ -8,7 +8,7 @@
                     <div class="row">
                         <p>Name : {{ $users[$post->user_id-1]->name }}</p>
                         @if($post->type == 0)
-                            <img src="/img/photos/{{$post->post_id}}.png">
+                            <img src={{url("/img/photos/{$post->post_id}.png")}}>
                             <p>comment:</p>
                             @forelse($post->comments as $comment)
                                 <p>{{ $comment->comment }}</p>
@@ -25,7 +25,7 @@
                                 <p>no like</p>
                             @endforelse
                         @elseif($post->type == 1)
-                            <video controls src="/img/videos/{{$post->post_id}}.mp4">Ici la description alternative</video>
+                            <video controls src={{url("/img/videos/{$post->post_id}.mp4")}}>Ici la description alternative</video>
                             @forelse($post->comments as $comment)
                                 <p>comment:</p>
                                 <p>{{ $comment->comment }}</p>
