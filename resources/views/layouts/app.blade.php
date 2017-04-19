@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sociale</title>
+    <title>K-Sos</title>
 
 
     <!-- Fonts -->
@@ -14,7 +14,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href={{url("/css/bootstrap.min.css")}}>
+<<<<<<< HEAD
 	<link rel="stylesheet" href={{url("/css/style.css")}}>
+=======
+    <link rel="stylesheet" href={{url("/css/style.css")}}>
+>>>>>>> a3c843fa1ef28b1f7264ca8634bd89bd601bdc29
 
 
     <link rel="shortcut icon" type="image/x-icon" href="http://blindlibrary.utah.gov/images/logoBook.gif">
@@ -44,7 +48,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Sociale
+                    K-Sos
                 </a>
             </div>
 
@@ -57,6 +61,7 @@
                         <li><a href="{{ url('/admin/users') }}">Utilisateur</a></li>
                         <li><a href="{{ url('/admin/friends') }}">Amis</a></li>
                         <li><a href="{{ url('#') }}">Photos</a></li>
+                        <li><a href="{{ url('/admin/mur') }}">Kotidien</a></li>
                     @else
                         <li><a href="{{ url('/users') }}">Utilisateur</a></li>
                     @endif

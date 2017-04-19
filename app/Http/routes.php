@@ -26,6 +26,7 @@ Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
+    Route::resource('mur', 'MurController');
     Route::resource('posts', 'PostsController');
     Route::resource('photos', 'PhotosController');
     Route::resource('videos', 'VideosController');
