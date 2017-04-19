@@ -15,7 +15,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href={{url("/css/bootstrap.min.css")}}>
-    <link rel="stylesheet" href={{url("/css/style.css")}}>
+	<link rel="stylesheet" href={{url("/css/style.css")}}>
+
+
 
 
     <link rel="shortcut icon" type="image/x-icon" href="http://blindlibrary.utah.gov/images/logoBook.gif">

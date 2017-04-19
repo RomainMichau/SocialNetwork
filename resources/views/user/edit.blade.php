@@ -16,7 +16,13 @@
                                     <input type="file" class="form-control-file" id="profil" name="profil">
                                 </div>
                             </div>
-
+							
+							<div class="form-group">
+                                <label for="couverture" class="col-md-4 control-label">Photo de couverture</label>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control-file" id="couverture" name="couverture">
+                                </div>
+                            </div>
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">Name</label>
