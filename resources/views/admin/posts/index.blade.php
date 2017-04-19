@@ -2,7 +2,7 @@
 @section('content')
     <div class="container vertical-center">
         <div class="row">
-            <h1>My book's list</h1>
+            <h1>My posts's list</h1>
             @forelse($posts as $post)
                 <div class="container">
                     <div class="row">
