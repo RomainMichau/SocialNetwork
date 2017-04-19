@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,6 +20,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Auth::user()->posts()->with('comments')->with('likes')->get();
+        $posts = $posts->sortBy('created_at')->reverse();
         return view('admin.posts.index',compact('posts'));
     }
 

@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/about', 'UserController@show');
+Route::get('/about', 'UserController@show')->name('about');
 Route::get('/profil', 'UserController@edit');
 Route::post('/profil', 'UserController@update');
 Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
@@ -34,7 +34,8 @@ Route::group(['prefix' => 'messages'], function () {
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
-    Route::resource('mur', 'MurController');
+    Route::resource('mur', 'MurController', ['except' => ['store']]);
+    Route::post('mur/{post}', 'MurController@store');
     Route::resource('posts', 'PostsController');
     Route::resource('photos', 'PhotosController');
     Route::resource('videos', 'VideosController');

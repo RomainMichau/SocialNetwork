@@ -58,7 +58,7 @@ class VideosController extends Controller
             $post->post_id = $video->id;
             $post->type = 1;
             $post->save();
-            return redirect()->route('admin.videos.create')->with('message', 'New Video!!!');
+            return redirect()->route('about')->with('message', 'New Video!!!');
         }
     }
 

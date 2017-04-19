@@ -58,7 +58,7 @@ class PhotosController extends Controller
             $post->post_id = $photo->id;
             $post->type = 0;
             $post->save();
-            return redirect()->route('admin.photos.create')->with('message', 'New photo!!!');
+            return redirect()->route('about')->with('message', 'New photo!!!');
         }
     }
 
