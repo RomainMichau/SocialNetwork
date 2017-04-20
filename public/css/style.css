@@ -44,6 +44,15 @@
 	border: solid 1px #444;
 }
 
+.publi2 {
+	box-sizing: border-box;
+	margin: 20px auto;
+	width: 80%;
+	padding: 20px;
+	box-sizing: border-box;
+	border: solid 1px #444;
+}
+
 .image {
 	top: 54px;
 	background-image: url("../img/welcome.png");
@@ -64,4 +73,17 @@
 
 .encadre {
 	border: solid 1px #eee;
+}
+
+
+img {
+	width: 80%;
+	height: 100%;
+	margin-left: 10%;
+}
+
+video {
+	width: 80%;
+	height: 100%;
+	margin-left: 10%;
 }

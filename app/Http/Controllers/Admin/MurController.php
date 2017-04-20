@@ -43,8 +43,8 @@ class MurController extends Controller
         }
         $posts = collect($posts)->sortBy('created_at')->reverse();
         $posts = json_decode(json_encode($posts));
-        $users = User::all();
-        return view('admin.mur.index', compact('posts', 'users'));
+
+        return view('admin.mur.index', compact('posts'));
 
     }
 
