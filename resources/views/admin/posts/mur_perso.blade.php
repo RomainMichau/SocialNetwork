@@ -11,6 +11,13 @@
                                 <input type="texte" name="comment" class="champ"/>
                                 <button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
                             </form>
+
+                            @forelse($post->comments as $comment)
+                                <div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}  : {{ $comment->comment }}</div>
+                            @empty
+                                <div>Pas de Kommentaire</div>
+                            @endforelse
+
                             @include('admin.mur.comments')
 						</div>
 						<div class="col-md-5" style="margin-top:10px; border: solid 1px #bbb;">
