@@ -146,9 +146,9 @@
                     <div class="publi">
                         <div class="container">
                             <div class="row">
-                                <p>{{ $post->event->title }}</p>
+                                <p><b><u>{{ $post->event->title }}</u></b></p>
                                 <p>{{ $post->event->description }}</p>
-                                <p>{{ $post->event->date }}</p>
+                                <p><i>{{ $post->event->date }}</i></p>
                                 <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <input type="texte" name="comment" class="champ"/>

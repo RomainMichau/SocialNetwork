@@ -160,9 +160,9 @@
                                         @elseif($post->type == 2)
                                             <div class="publi2">
                                                 <a href="{{ route('admin.users.show', $post->user_id) }}"><h3><b>{{DB::table('users')->where('id',$post->user_id)->get()[0]->name}}</b></h3></a>
-                                                <p>{{ $post->event->title }}</p>
+                                                <p><b><u>{{ $post->event->title }}</u></b></p>
                                                 <p>{{ $post->event->description }}</p>
-                                                <p>{{ $post->event->date }}</p>
+                                                <p><i>{{ $post->event->date }}</i></p>
                                                 </br>
                                                 <div class="row">
                                                     <div class="col-md-7">
