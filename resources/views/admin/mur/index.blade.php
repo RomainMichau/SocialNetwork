@@ -50,9 +50,10 @@
                     </div>
                 </div>
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div id={{$post->id*174}}>
-                        @if(DB::table('likes')->select('like')->where([['post_id',$post->id],['user_id',Auth::user()->id]])->count()==0)
+                                    {{ csrf_field() }}
+
+                       @if(DB::table('likes')->select('like')->where([['post_id',$post->id],['user_id',Auth::user()->id]])->count()==0)
+
                             <button value="1" type="submit" class="btn btn-primary btn-sm" name="avis">{{DB::table('likes')->select('like')->where([['post_id',$post->id],['like','1']])->count()}}<i class="em em---1"></i></button>
                             <button value="2" type="submit" class="btn btn-primary btn-sm" name="avis">{{DB::table('likes')->select('like')->where([['post_id',$post->id],['like','2']])->count()}}<i class="em em--1"></i></button>
                             <button value="3" type="submit" class="btn btn-primary btn-sm" name="avis">{{DB::table('likes')->select('like')->where([['post_id',$post->id],['like','3']])->count()}}<i class="em em-clap"></i></button>
@@ -94,20 +95,25 @@
                             @else
                                 <div value="6"  class="nonbtn nonbtn-primary nonbtn-sm" name="avis">{{DB::table('likes')->select('like')->where([['post_id',$post->id],['like','6']])->count()}}<i class="em em-grin "></i><i class="em em-gun "></i></div>
                             @endif
-                            <div id={{$post->id}}> <button type="button" onclick="dislike({{$post->id}})" class="btn btn-danger " >Reset</button><br></div>
-                        @endif
-                    </div>
-                </form>
+                    @endif
+                      </form>
+
+
+
+                {{ Form::open(['route' => ['admin.likes.destroy',$post->id], 'method' => 'delete']) }}
+                {{ Form::submit('reset', ['class' => 'btn btn-warning btn-xs']) }}
+                {{ Form::close() }}
 
 
 
 
 
-                ----------------------------------------------
-            @empty
-                <p>No Book</p>
 
-            @endforelse
-        </div>
-    </div>
+----------------------------------------------
+@empty
+<p>No Book</p>
+
+@endforelse
+</div>
+</div>
 @endsection

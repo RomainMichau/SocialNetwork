@@ -41,7 +41,8 @@ class EventsController extends Controller
      */
     public function create()
     {
-        return view('admin.events.create');
+        $voir = array(0 => 'Moi uniquement', 1 => 'Mes amis', 2 => 'Tout le monde');
+        return view('admin.events.create', compact('voir'));
     }
 
     /**
@@ -59,8 +60,11 @@ class EventsController extends Controller
         $event->save();
         $post = new Post;
         $post->user_id = Auth::user()->id;
-        $post->post_id = $event->id;
+        $post->photo_id = 0;
+        $post->video_id = 0;
+        $post->event_id = $event->id;
         $post->type = 2;
+        $post->voir = $request->get('voir');
         $post->save();
         return redirect()->route('about')->with('message', 'New Event!!!');;
 

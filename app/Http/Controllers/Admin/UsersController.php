@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -34,7 +35,13 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $posts = User::findOrFail($id)->posts()->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
+        $user = User::findOrFail($id);
+        if($user->isFriendWith(Auth::user()))
+            $posts = $user->posts()->where('voir', '=', '1', 'OR', 'voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
+        else{
+            $posts = $user->posts()->where('voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
+        }
+
         return view('admin.users.show', compact('posts'));
     }
 }

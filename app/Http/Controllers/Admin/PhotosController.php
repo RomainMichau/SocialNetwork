@@ -33,7 +33,8 @@ class PhotosController extends Controller
      */
     public function create()
     {
-        return view('admin.photos.create');
+        $voir = array(0 => 'Moi uniquement', 1 => 'Mes amis', 2 => 'Tout le monde');
+        return view('admin.photos.create', compact('voir'));
     }
 
     /**
@@ -58,8 +59,11 @@ class PhotosController extends Controller
             $request['picture']->move(public_path(). "/img/photos","{$photo->id}.png");
             $post = new Post;
             $post->user_id = Auth::user()->id;
-            $post->post_id = $photo->id;
+            $post->event_id = 0;
+            $post->video_id = 0;
+            $post->photo_id = $photo->id;
             $post->type = 0;
+            $post->voir = $request->get('voir');
             $post->save();
             return redirect()->route('about')->with('message', 'New photo!!!');
         }

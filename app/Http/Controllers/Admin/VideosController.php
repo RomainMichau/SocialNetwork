@@ -33,7 +33,8 @@ class VideosController extends Controller
      */
     public function create()
     {
-        return view('admin.videos.create');
+        $voir = array(0 => 'Moi uniquement', 1 => 'Mes amis', 2 => 'Tout le monde');
+        return view('admin.videos.create', compact('voir'));
     }
 
     /**
@@ -58,8 +59,11 @@ class VideosController extends Controller
             $request['video']->move(public_path(). "/img/videos","{$video->id}.mp4");
             $post = new Post;
             $post->user_id = Auth::user()->id;
-            $post->post_id = $video->id;
+            $post->event_id = 0;
+            $post->photo_id = 0;
+            $post->video_id = $video->id;
             $post->type = 1;
+            $post->voir = $request->get('voir');
             $post->save();
             return redirect()->route('about')->with('message', 'New Video!!!');
         }

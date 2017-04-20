@@ -18,6 +18,12 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="voir" class="col-md-4 control-label">Visibilité</label>
+                                <div class="col-md-6">
+                                    {!! Form::select('voir', $voir, null, ['class'=>'form-control', 'data-live-search' => 'true' ]) !!}
+                                </div>
+                            </div>
 
                                 <div class="form-group"> 
                                 <div class="col-md-6"> 

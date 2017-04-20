@@ -150,6 +150,7 @@ return [
         Hootlex\Friendships\FriendshipsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
+		 Cmgmyr\Messenger\MessengerServiceProvider::class,
 
 
 
