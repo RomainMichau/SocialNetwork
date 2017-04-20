@@ -16,7 +16,7 @@ class dumpdata extends Seeder
         $user->email = 'a@gmail.com';
         $user->password = Hash::make('123456');
         $user->profil = 1;
-        $user->couverture = 1;
+        $user->couverture = 0;
         $user->save();
         $user1 = $user;
 
