@@ -67,19 +67,8 @@
 								{{ Form::submit('reset', ['class' => 'btn btn-warning btn-xs']) }}
 								{{ Form::close() }}
 
+                                @include('admin.mur.comments')
 
-								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
-									{{ csrf_field() }}
-									<input type="texte" name="comment"/>
-									<button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
-								</form>
-
-								@forelse($post->comments as $comment)
-									<div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
-
-								@empty
-									<div>Pas de kommentaire</div>
-								@endforelse
 							</div>
 						
 <!-- ***********************************************************************************************************
@@ -143,18 +132,7 @@
 								{{ Form::close() }}
 
 
-								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
-									{{ csrf_field() }}
-									<input type="texte" name="comment"/>
-									<button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
-								</form>
-
-								@forelse($post->comments as $comment)
-									<div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
-
-								@empty
-									<div>Pas de kommentaire</div>
-								@endforelse
+                                @include('admin.mur.comments')
 							</div>
 							
 <!-- ***********************************************************************************************************
@@ -221,18 +199,7 @@
 								{{ Form::close() }}
 
 
-								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
-									{{ csrf_field() }}
-									<input type="texte" name="comment"/>
-									<button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
-								</form>
-
-								@forelse($post->comments as $comment)
-									<div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
-
-								@empty
-									<div>Pas de kommentaire</div>
-								@endforelse
+                                @include('admin.mur.comments')
                             </div>
                         @endif
                     </div>

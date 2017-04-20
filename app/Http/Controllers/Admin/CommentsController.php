@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+
 class CommentsController extends Controller
 {
     public function __construct(){
@@ -21,8 +24,8 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        $user=Auth::user();
-        $comment=DB::table('comments')->where([['post_id',$id],['user_id',$user->id]]);
+
+        $comment=DB::table('comments')->where('id',$id);
         $comment->delete();
         return Redirect::back();
 
