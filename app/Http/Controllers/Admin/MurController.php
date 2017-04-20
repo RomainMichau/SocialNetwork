@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Comment;
 use App\Like;
 use App\Post;
 use App\User;
@@ -63,15 +64,26 @@ class MurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $id)
-    {
+    { 
+        if(isset($request->avis)&&$request->avis!=""){
         $post = Post::findOrFail($id);
         $user = Auth::user();
         $like=new Like;
         $like->like=$request->avis;
         $like->post_id=$post->id;
         $like->user_id=$user->id;
-        $like->save();
+        $like->save();}
+        elseif (isset($request->comment)&&$request->comment!=""){
+            $post = Post::findOrFail($id);
+            $user = Auth::user();
+            $comment=new Comment();
+            $comment->comment=$request->comment;
+            $comment->post_id=$post->id;
+            $comment->user_id=$user->id;
+            $comment->save();}
+
         return redirect()->route('admin.mur.index');
+
     }
 
     /**
