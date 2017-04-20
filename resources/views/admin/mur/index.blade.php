@@ -12,7 +12,7 @@
 -->
                         @if($post->type == 0)
 							<div class="publi2">
-								<a href="{{ route('admin.users.show', $post->user_id) }}"><h3><b>{{ $users[$post->user_id-1]->name }}</b></h3></a>
+								<a href="{{ route('admin.users.show', $post->user_id) }}"><h3><b>{{DB::table('users')->where('id',$post->user_id)->get()[0]->name }}</b></h3></a>
 								<img src={{url("/img/photos/{$post->photo->id}.png")}}>
 								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
 									{{ csrf_field() }}
@@ -75,7 +75,7 @@
 								</form>
 
 								@forelse($post->comments as $comment)
-									<div> {{ $users[$comment->user_id-1]->name }}: {{ $comment->comment }}</div>
+									<div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
 
 								@empty
 									<div>Pas de kommentaire</div>
@@ -87,7 +87,7 @@
 -->
                         @elseif($post->type == 1)
 							<div class="publi2">
-								<a href="{{ route('admin.users.show', $post->user_id) }}"><h3><b>{{ $users[$post->user_id-1]->name }}</b></h3></a>
+								<a href="{{ route('admin.users.show', $post->user_id) }}"><h3><b>{{DB::table('users')->where('id',$post->user_id)->get()[0]->name}}</b></h3></a>
 								<video controls src={{url("/img/videos/{$post->video->id}.mp4")}}>Ici la description alternative</video>
 								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
 									{{ csrf_field() }}
@@ -150,7 +150,7 @@
 								</form>
 
 								@forelse($post->comments as $comment)
-									<div> {{ $users[$comment->user_id-1]->name }}: {{ $comment->comment }}</div>
+									<div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
 
 								@empty
 									<div>Pas de kommentaire</div>
@@ -163,7 +163,7 @@
 
                         @elseif($post->type == 2)
                             <div class="publi2">
-								<a href="{{ route('admin.users.show', $post->user_id) }}"><h3><b>{{ $users[$post->user_id-1]->name }}</b></h3></a>
+								<a href="{{ route('admin.users.show', $post->user_id) }}"><h3><b>{{DB::table('users')->where('id',$post->user_id)->get()[0]->name}}</b></h3></a>
                                     <p>{{ $post->event->title }}</p>
                                     <p>{{ $post->event->description }}</p>
                                     <p>{{ $post->event->date }}</p>
@@ -228,7 +228,7 @@
 								</form>
 
 								@forelse($post->comments as $comment)
-									<div> {{ $users[$comment->user_id-1]->name }}: {{ $comment->comment }}</div>
+									<div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
 
 								@empty
 									<div>Pas de kommentaire</div>
