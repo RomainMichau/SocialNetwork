@@ -76,7 +76,7 @@
 }
 
 
-img {
+.publi2 img {
 	width: 80%;
 	height: 100%;
 	margin-left: 10%;
@@ -96,5 +96,10 @@ video {
 .comm {
 	margin-left: 10px;
 	padding-bottom: 5px;
+	border-bottom: solid 1px #ddd;
+}
+
+.util {
+	border-top: solid 1px #ddd;
 	border-bottom: solid 1px #ddd;
 }

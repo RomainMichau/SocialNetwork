@@ -15,7 +15,7 @@
                             @forelse($post->comments as $comment)
                                 <div> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}  : {{ $comment->comment }}</div>
                             @empty
-                                <div>no comment</div>
+                                <div>Pas de Kommentaire</div>
                             @endforelse
 						</div>
 						<div class="col-md-5" style="margin-top:10px; border: solid 1px #bbb;">
