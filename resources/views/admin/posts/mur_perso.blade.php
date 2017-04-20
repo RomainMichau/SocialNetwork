@@ -6,6 +6,11 @@
                         <img src={{url("/img/photos/{$post->photo->id}.png")}} width=100%>
                         <div class="col-md-7" style="margin-top:10px;">
 							<p><b>Kommentaires :</b></p>
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="texte" name="comment" class="champ"/>
+                                <button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
+                            </form>
                             @include('admin.mur.comments')
 						</div>
 						<div class="col-md-5" style="margin-top:10px; border: solid 1px #bbb;">
@@ -68,6 +73,11 @@
                         <video controls src={{url("/img/videos/{$post->video->id}.mp4")}} width=100%>Ici la description alternative</video>
 						<div class="col-md-7" style="margin-top:10px;">
 							<p><b>Kommentaires :</b></p>
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="texte" name="comment" class="champ"/>
+                                <button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
+                            </form>
                             @include('admin.mur.comments')
 						</div>
 						<div class="col-md-5" style="margin-top:10px; border: solid 1px #bbb;">
@@ -132,6 +142,11 @@
                                 <p>{{ $post->event->title }}</p>
                                 <p>{{ $post->event->description }}</p>
                                 <p>{{ $post->event->date }}</p>
+                                <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <input type="texte" name="comment" class="champ"/>
+                                    <button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
+                                </form>
                                 @include('admin.mur.comments')
                             </div>
                         </div>

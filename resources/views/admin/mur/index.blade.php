@@ -77,13 +77,7 @@
                                         {{ Form::submit('reset', ['class' => 'btn btn-warning btn-xs']) }}
                                         {{ Form::close() }}
                                     </div>
-
-                                    @forelse($post->comments as $comment)
-                                        <div class="comm"> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
-
-                                    @empty
-                                        <div>Pas de kommentaire</div>
-                                    @endforelse
+                                    @include('admin.mur.comments')
                                 </div>
 
                                 <!-- ***********************************************************************************************************
@@ -156,13 +150,7 @@
                                                 {{ Form::submit('reset', ['class' => 'btn btn-warning btn-xs']) }}
                                                 {{ Form::close() }}
                                             </div>
-
-                                            @forelse($post->comments as $comment)
-                                                <div class="comm"> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
-
-                                            @empty
-                                                <div>Pas de kommentaire</div>
-                                            @endforelse
+                                            @include('admin.mur.comments')
                                         </div>
 
                                         <!-- ***********************************************************************************************************
@@ -238,13 +226,7 @@
                                                         {{ Form::submit('reset', ['class' => 'btn btn-warning btn-xs']) }}
                                                         {{ Form::close() }}
                                                     </div>
-
-                                                    @forelse($post->comments as $comment)
-                                                        <div class="comm"> {{DB::table('users')->where('id',$comment->user_id)->get()[0]->name}}: {{ $comment->comment }}</div>
-
-                                                    @empty
-                                                        <div>Pas de kommentaire</div>
-                                                    @endforelse
+                                                    @include('admin.mur.comments')
                                                 </div>
                                                 @endif
                                             </div>
