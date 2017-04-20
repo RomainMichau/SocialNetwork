@@ -4,11 +4,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				@if($user->couverture)
-					<div class="lee">
-						<img src={{url("/img/couverture/{$user->id}.png")}} width="100%" height="100%">
-					</div>
+				<div class="lee">
+				@if($user->couverture)				
+					<img src={{url("/img/couverture/{$user->id}.png")}} width="100%" height="100%">		
 				@endif
+				</div>
 			</div>
 		</div>
 		

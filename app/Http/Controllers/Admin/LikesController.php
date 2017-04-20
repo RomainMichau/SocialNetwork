@@ -27,10 +27,11 @@ class LikesController extends Controller
     public function destroy($id)
     {
         $user=Auth::user();
+
         $like=DB::table('likes')->where([['post_id',$id],['user_id',$user->id]])->delete();
         return Redirect::back();
+
     }
-    //
 }
 
 

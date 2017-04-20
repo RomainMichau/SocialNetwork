@@ -41,7 +41,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
     Route::resource('photos', 'PhotosController');
     Route::resource('videos', 'VideosController');
     Route::resource('events', 'EventsController');
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'destroy']]);
+        Route::delete('users/{user}', 'UsersController@destroy')->name('admin.users.destroy')->middleware('super');
     Route::resource('friends', 'FriendsController', ['except' => ['update', 'create']]);
         Route::put('friends/{friends}/{status}', 'FriendsController@update')->name('admin.friends.update');
         Route::get('friends/{friends}', 'FriendsController@create')->name('admin.friends.create');

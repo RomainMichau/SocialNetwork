@@ -9,7 +9,7 @@
     </script>
     <div class="container vertical-center">
         <div class="row">
-            <h1>My posts's list</h1>
+            <h1 style="text-align: center">Mon Kotidien</h1>
             @forelse($posts as $post)
                 <div class="container" style="background-color: #c7ddef">
                     <div class="row">
@@ -40,10 +40,8 @@
                 </div>
 
 
-
-
-
-                </form>
+				</form>
+				
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 

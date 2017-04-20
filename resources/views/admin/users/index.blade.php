@@ -17,6 +17,11 @@
                                 <p>no Picture</p>
                             @endif
                             @include('admin.users.status_bar')
+                            @if(\Illuminate\Support\Facades\Auth::user()->type == 1 && $user->type != 1)
+                                {{ Form::open(['route' => ['admin.users.destroy',$user->id], 'method' => 'delete']) }}
+                                {{ Form::submit('supprimer', ['class' => 'btn btn-danger btn-xs']) }}
+                                {{ Form::close() }}
+                            @endif
                             <br>
                         @endif
                     @endforeach
