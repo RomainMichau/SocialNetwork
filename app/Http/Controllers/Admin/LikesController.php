@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class LikesController extends Controller
 {
@@ -27,7 +28,7 @@ class LikesController extends Controller
     {
         $user=Auth::user();
         $like=DB::table('likes')->where([['post_id',$id],['user_id',$user->id]])->delete();
-        ;return redirect()->route('admin.mur.index');
+        return Redirect::back();
     }
     //
 }
