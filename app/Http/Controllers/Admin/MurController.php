@@ -39,10 +39,19 @@ class MurController extends Controller
             {
                 $users[] = User::findOrFail($friendship->sender_id);
                 $posts = array_merge($posts, end($users)->posts()->where('voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
+
             }
         }
+
+
         $posts = collect($posts)->sortBy('created_at')->reverse();
+
         $posts = json_decode(json_encode($posts));
+
+        foreach ($posts as $post){
+
+            $post->comments=collect($post->comments)->sortBy('created_at')->reverse();
+        }
 
         return view('admin.mur.index', compact('posts'));
 
