@@ -87,3 +87,14 @@ video {
 	height: 100%;
 	margin-left: 10%;
 }
+
+.champ {
+	width: 75%;
+	margin-right: 10px;
+}
+
+.comm {
+	margin-left: 10px;
+	padding-bottom: 5px;
+	border-bottom: solid 1px #ddd;
+}
