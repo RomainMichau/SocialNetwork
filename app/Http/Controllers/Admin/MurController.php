@@ -25,19 +25,19 @@ class MurController extends Controller
      */
     public function index()
     {
-        $friendships = Auth::user()->getAllFriendships();
+        $friendships = User::all();
         $users = array();
         $posts = array();
         foreach($friendships as $friendship)
         {
-            if(Auth::user()->id == $friendship->sender_id)
+            if(Auth::user()->isFriendWith($friendship))
             {
-                $users[] = User::findOrFail($friendship->recipient_id);
+                $users[] = $friendship;
                 $posts = array_merge($posts, end($users)->posts()->where('voir', '=', '1', 'OR', 'voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
             }
             else
             {
-                $users[] = User::findOrFail($friendship->sender_id);
+                $users[] =$friendship;
                 $posts = array_merge($posts, end($users)->posts()->where('voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
 
             }
