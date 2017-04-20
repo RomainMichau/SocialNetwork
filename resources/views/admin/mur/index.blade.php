@@ -17,25 +17,13 @@
                         @if($post->type == 0)
                             <img src={{url("/img/photos/{$post->photo->id}.png")}}>
                             <div style="background-color: #31b0d5">
-                                <div>comment:</div>
-                                @forelse($post->comments as $comment)
-                                    <div>{{ $comment->comment }}</div>
-                                    <div>{{ $users[$comment->user_id-1]->name }}</div>
-                                @empty
-                                    <div>no comment</div>
-                                @endforelse
+
+
                             </div>
 
                         @elseif($post->type == 1)
                             <video controls src={{url("/img/videos/{$post->video->id}.mp4")}}>Ici la description alternative</video>
-                            @forelse($post->comments as $comment)
-                                <div>comment:</div>
-                                <div>{{ $comment->comment }}</div>
-                                <div>{{ $users[$comment->user_id-1]->name }}</div>
 
-                            @empty
-                                <div>no comment</div>
-                            @endforelse
 
 
                         @elseif($post->type == 2)
@@ -48,7 +36,14 @@
                             </div>
                         @endif
                     </div>
+
                 </div>
+
+
+
+
+
+                </form>
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
@@ -100,9 +95,25 @@
 
 
 
+
+
                 {{ Form::open(['route' => ['admin.likes.destroy',$post->id], 'method' => 'delete']) }}
                 {{ Form::submit('reset', ['class' => 'btn btn-warning btn-xs']) }}
                 {{ Form::close() }}
+
+
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="texte" name="comment"/>
+                    <button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
+                </form>
+
+                @forelse($post->comments as $comment)
+                    <div> {{ $users[$comment->user_id-1]->name }}: {{ $comment->comment }}</div>
+
+                @empty
+                    <div>no comment</div>
+                @endforelse
 
 
 
