@@ -36,6 +36,7 @@ Route::group(['prefix' => 'messages'], function () {
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
     Route::resource('mur', 'MurController', ['except' => ['store']]);
     Route::post('mur/{post}', 'MurController@store');
+    Route::delete('likes/{post}', 'LikesController@destroy')->name('admin.likes.destroy');;
     Route::resource('posts', 'PostsController');
     Route::resource('photos', 'PhotosController');
     Route::resource('videos', 'VideosController');
