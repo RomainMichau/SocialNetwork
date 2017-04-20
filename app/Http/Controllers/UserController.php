@@ -32,7 +32,7 @@ class UserController extends Controller
 		$posts = Auth::user()->posts()->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
         $posts = $posts->sortBy('created_at')->reverse();
         foreach ($posts as $post){
-           
+
             $post->comments=$post->comments->sortBy('created_at')->reverse();
         }
         return view('user.show', compact('user', 'posts'));
