@@ -41,7 +41,14 @@ class UsersController extends Controller
         else{
             $posts = $user->posts()->where('voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
         }
-
         return view('admin.users.show', compact('posts'));
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        if($user->type != 1)
+            $user->delete();
+        return redirect()->route('admin.users.index');
     }
 }

@@ -15,7 +15,7 @@ class CheckSuperUtilsateur
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->type != 2) {
+        if ($request->user()->type != 1) {
             return redirect(url('/'));
         }
 
