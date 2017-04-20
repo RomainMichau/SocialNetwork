@@ -38,7 +38,7 @@
 
 .publi {
 	margin: 20px auto;
-	width: 100%;
+	width: 75%;
 	padding: 20px;
 	box-sizing: border-box;
 	border: solid 1px #444;
@@ -62,3 +62,6 @@
 	border-radius: 20px;
 }
 
+.encadre {
+	border: solid 1px #eee;
+}
