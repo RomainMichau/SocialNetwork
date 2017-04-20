@@ -1,12 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
-    <script type="text/javascript">
-        function like(i,j){
-            //
-        }
-    </script>
     <div class="container vertical-center">
         <div class="row">
             <h1 style="text-align: center">Mon Kotidien</h1>
@@ -247,12 +240,16 @@
                 </div>
 
 
+
 				</form>
 				
 
-@empty
-<p>Kotidien vide</p>
-@endforelse
-</div>
-</div>
+				@empty
+				<p>Kotidien vide</p>
+
+
+            @endforelse
+        </div>
+    </div>
+
 @endsection

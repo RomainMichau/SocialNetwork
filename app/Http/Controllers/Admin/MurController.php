@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class MurController extends Controller
 {
@@ -64,7 +65,7 @@ class MurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $id)
-    { 
+    {
         if(isset($request->avis)&&$request->avis!=""){
         $post = Post::findOrFail($id);
         $user = Auth::user();
@@ -82,7 +83,7 @@ class MurController extends Controller
             $comment->user_id=$user->id;
             $comment->save();}
 
-        return redirect()->route('admin.mur.index');
+        return Redirect::back();
 
     }
 
