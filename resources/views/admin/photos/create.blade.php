@@ -10,7 +10,6 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/photos')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             @include('errors')
-
                             <div class="form-group">
                                 <label for="picture" class="col-md-4 control-label">Picture</label>
                                 <div class="col-md-6">
@@ -18,6 +17,12 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="voir" class="col-md-4 control-label">Visibilité</label>
+                                <div class="col-md-6">
+                                    {!! Form::select('voir', $voir, null, ['class'=>'form-control', 'data-live-search' => 'true' ]) !!}
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-6">
