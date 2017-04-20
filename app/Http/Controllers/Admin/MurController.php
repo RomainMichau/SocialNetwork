@@ -91,9 +91,7 @@ class MurController extends Controller
             $comment->post_id=$post->id;
             $comment->user_id=$user->id;
             $comment->save();}
-
         return Redirect::back();
-
     }
 
     /**
