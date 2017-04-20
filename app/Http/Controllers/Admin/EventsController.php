@@ -24,14 +24,10 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $posts = Post::get()->where('type', 2);
-        $events = array();
-        foreach ($posts as $post)
-        {
-            $events[] = Event::findOrFail($post->event_id);
-        }
-        $events = collect($events)->sortBy('date');
-        return view('admin.events.index',compact('events'));
+
+        $posts=Auth::user()->posts()->where('type',2)->with('event')->get();
+
+        return view('admin.events.index',compact('posts'));
     }
 
     /**
