@@ -21,9 +21,10 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'profil' => 'image',
+            'couverture' => 'image',
         ]);
         $user = $auth->user();
-        $user->update($request->only('name', 'profil'));
+        $user->update($request->only('name', 'profil', 'couverture'));
         return  redirect('/about')->with('message', 'profil modifié');
     }
     public function show(){

@@ -8,8 +8,11 @@ class Photo extends Model
 {
     public $timestamps = false;
 
-    public function video(){
-        return $this->belongsTo('App\Video');
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+    public function likes(){
+        return $this->hasMany('App\Like');
     }
 
     public function scopePicture($picture){

@@ -16,9 +16,11 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('post_id')->unsigned();
-            //$table->foreign('post_id')->references('id')->on('$')->onDelete('cascade');
+            $table->integer('photo_id')->unsigned();
+            $table->integer('video_id')->unsigned();
+            $table->integer('event_id')->unsigned();
             $table->integer('type');
+            $table->integer('voir');
             $table->timestamps();
         });
     }

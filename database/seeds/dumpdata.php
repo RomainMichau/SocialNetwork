@@ -16,6 +16,7 @@ class dumpdata extends Seeder
         $user->email = 'a@gmail.com';
         $user->password = Hash::make('123456');
         $user->profil = 1;
+        $user->couverture = 1;
         $user->save();
         $user1 = $user;
 
@@ -24,6 +25,7 @@ class dumpdata extends Seeder
         $user->email = 'b@gmail.com';
         $user->password = Hash::make('123456');
         $user->profil = 1;
+        $user->couverture = 0;
         $user->save();
         $user2 = $user;
 
@@ -32,6 +34,7 @@ class dumpdata extends Seeder
         $user->email = 'c@gmail.com';
         $user->password = Hash::make('123456');
         $user->profil = 1;
+        $user->couverture = 0;
         $user->save();
 
         $user1->befriend($user2);
@@ -43,31 +46,42 @@ class dumpdata extends Seeder
         $photo->save();
         $post = new \App\Post;
         $post->user_id = $user->id;
-        $post->post_id = $photo->id;
+        $post->photo_id = $photo->id;
+        $post->video_id = 0;
+        $post->event_id = 0;
         $post->type = 0;
+        $post->voir = 2;
         $post->save();
 
         $photo = new \App\Photo();
         $photo->save();
         $post = new \App\Post;
         $post->user_id = $user1->id;
-        $post->post_id = $photo->id;
+        $post->photo_id = $photo->id;
+        $post->video_id = 0;
+        $post->event_id = 0;
         $post->type = 0;
+        $post->voir = 2;
         $post->save();
 
         $video = new \App\Video();
         $video->save();
         $post = new \App\Post;
         $post->user_id = $user2->id;
-        $post->post_id = $video->id;
+        $post->photo_id = 0;
+        $post->video_id = $video->id;
+        $post->event_id = 0;
         $post->type = 1;
+        $post->voir = 2;
         $post->save();
 
         $video = new \App\Video();
         $video->save();
         $post = new \App\Post();
         $post->user_id = $user->id;
-        $post->post_id = $video->id;
+        $post->photo_id = 0;
+        $post->video_id = $video->id;
+        $post->event_id = 0;
         $post->type = 1;
         $post->save();
 
@@ -78,8 +92,11 @@ class dumpdata extends Seeder
         $event->save();
         $post = new \App\Post();
         $post->user_id = $user2->id;
-        $post->post_id = $event->id;
+        $post->photo_id = 0;
+        $post->video_id = 0;
+        $post->event_id = $event->id;
         $post->type = 2;
+        $post->voir = 2;
         $post->save();
 
         $event = new \App\Event();
@@ -89,8 +106,11 @@ class dumpdata extends Seeder
         $event->save();
         $post = new \App\Post();
         $post->user_id = $user->id;
-        $post->post_id = $event->id;
+        $post->photo_id = 0;
+        $post->video_id = 0;
+        $post->event_id = $event->id;
         $post->type = 2;
+        $post->voir = 2;
         $post->save();
 
         $comment = new \App\Comment();

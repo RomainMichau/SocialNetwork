@@ -3,7 +3,7 @@
         <div class="row">
                 @if($post->type == 0)
                     <div class="publi">
-                        <img src={{url("/img/photos/{$post->post_id}.png")}} width=100%>
+                        <img src={{url("/img/photos/{$post->photo->id}.png")}} width=100%>
                         <p>Kommentaires :</p>
                         @forelse($post->comments as $comment)
                             <p>{{ $comment->comment }}</p>
@@ -20,7 +20,7 @@
                     </div>
                 @elseif($post->type == 1)
                     <div class="publi">
-                        <video controls src={{url("/img/videos/{$post->post_id}.mp4")}} width=100%>Ici la description alternative</video>
+                        <video controls src={{url("/img/videos/{$post->video->id}.mp4")}} width=100%>Ici la description alternative</video>
                         @forelse($post->comments as $comment)
                             <p>Kommentaires :>
                             <p>{{ $comment->comment }}</p>
@@ -38,7 +38,13 @@
                     </div>
                 @elseif($post->type == 2)
                     <div class="publi">
-                        <p>Evenement (pas encore fait)</p>
+                        <div class="container">
+                            <div class="row">
+                                <p>{{ $post->event->title }}</p>
+                                <p>{{ $post->event->description }}</p>
+                                <p>{{ $post->event->date }}</p>
+                            </div>
+                        </div>
                     </div>
                 @endif
         </div>

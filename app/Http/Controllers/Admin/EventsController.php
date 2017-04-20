@@ -25,7 +25,7 @@ class EventsController extends Controller
         $events = array();
         foreach ($posts as $post)
         {
-            $events[] = Event::findOrFail($post->post_id);
+            $events[] = Event::findOrFail($post->event_id);
         }
         $events = collect($events)->sortBy('date');
         return view('admin.events.index',compact('events'));

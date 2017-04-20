@@ -28,12 +28,12 @@ class MurController extends Controller
             if(Auth::user()->id == $friendship->sender_id)
             {
                 $users[] = User::findOrFail($friendship->recipient_id);
-                $posts = array_merge($posts, end($users)->posts()->with('comments')->with('likes')->get()->toArray());
+                $posts = array_merge($posts, end($users)->posts()->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
             }
             else
             {
                 $users[] = User::findOrFail($friendship->sender_id);
-                $posts = array_merge($posts, end($users)->posts()->with('comments')->with('likes')->get()->toArray());
+                $posts = array_merge($posts, end($users)->posts()->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
             }
         }
         $posts = collect($posts)->sortBy('created_at')->reverse();
