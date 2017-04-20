@@ -1,7 +1,15 @@
 @forelse($posts as $post)
     <div class="container">
         <div class="row">
-                @if($post->type == 0)
+            @if($post->voir==0)
+                {{"Moi uniquement"}}@endif
+            @if($post->voir==1)
+                {{"Amis"}}@endif
+            @if($post->voir==2)
+                {{"Public"}}
+            @endif
+
+        @if($post->type == 0)
                 <div class="publi">
 					<div class="row">
                         <img src={{url("/img/photos/{$post->photo->id}.png")}} width=100%>
@@ -13,14 +21,9 @@
                                 <button  type="submit" class="btn btn-primary btn-sm" name="avis">Submit</button>
                             </form>
 
-                            @forelse($post->comments as $comment)
-                                
-                            @empty
-                                <div>Pas de Kommentaire</div>
-                            @endforelse
 
                             @include('admin.mur.comments')
-							
+
 						</div>
 						<div class="col-md-5" style="margin-top:10px; border: solid 1px #bbb;">
                             <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
@@ -77,7 +80,7 @@
 						</div>
 					</div>
 				</div>
-					
+
                 @elseif($post->type == 1)
                     <div class="publi">
                         <div class="row">
@@ -146,7 +149,7 @@
 							</div>
 						</div>
 					</div>
-                    
+
                 @elseif($post->type == 2)
                     <div class="publi">
                         <div class="container">
@@ -164,7 +167,7 @@
                         </div>
                     </div>
                 @endif
-			
+
         </div>
     </div>
 @empty

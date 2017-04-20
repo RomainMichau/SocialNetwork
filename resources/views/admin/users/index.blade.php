@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <h1 style="text-align: center">Klients</h1>
                 <div class="col-md-12">					
-                    @foreach($users as $user)					
+                    @foreach($users as $user)
                         @if(Auth::user() != $user)
                             <div class="util">
 								<h2>
