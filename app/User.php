@@ -14,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'profil',
+        'name', 'email', 'password', 'profil', 'couverture'
     ];
 
     /**
@@ -35,11 +35,34 @@ class User extends Authenticatable
     public function likes(){
         return $this->hasMany('App\Like');
     }
+    /*public function scopePost($query)
+    {
+        dd($query);
+        return $query->where('active', 1);
+    }*/
 
     public function setProfilAttribute($profil){
-        if(is_object($profil) && $profil->isValid()){
-            $profil->move(public_path(). "/img/profils","{$this->id}.png");
-            $this->attributes['profil'] = true;
+        if(is_object($profil)){
+            if($profil->isValid()){
+                $profil->move(public_path() . "/img/profils", "{$this->id}.png");
+                $this->attributes['profil'] = true;
+            }
+        }
+        elseif ($profil == 1 || $profil == 0)
+        {
+            $this->attributes['profil'] = $profil;
+        }
+    }
+    public function setCouvertureAttribute($couverture){
+        if(is_object($couverture)){
+            if($couverture->isValid()){
+                $couverture->move(public_path() . "/img/couverture", "{$this->id}.png");
+                $this->attributes['couverture'] = true;
+            }
+        }
+        elseif ($couverture == 1 || $couverture == 0)
+        {
+            $this->attributes['couverture'] = $couverture;
         }
     }
     use Friendable;

@@ -29,8 +29,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-        $books = $user->books;
-        return view('users.show', compact('user', 'books'));
+        $posts = User::findOrFail($id)->posts()->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
+        return view('admin.users.show', compact('posts'));
     }
 }

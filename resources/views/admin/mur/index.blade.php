@@ -3,14 +3,9 @@
 
 
     <script type="text/javascript">
-
         function like(i,j){
-
-
+            //
         }
-
-
-
     </script>
     <div class="container vertical-center">
         <div class="row">
@@ -20,7 +15,7 @@
                     <div class="row">
                         <div>{{ $users[$post->user_id-1]->name }}</div>
                         @if($post->type == 0)
-                            <img src={{url("/img/photos/{$post->post_id}.png")}}>
+                            <img src={{url("/img/photos/{$post->photo->id}.png")}}>
                             <div style="background-color: #31b0d5">
                                 <div>comment:</div>
                                 @forelse($post->comments as $comment)
@@ -32,7 +27,7 @@
                             </div>
 
                         @elseif($post->type == 1)
-                            <video controls src={{url("/img/videos/{$post->post_id}.mp4")}}>Ici la description alternative</video>
+                            <video controls src={{url("/img/videos/{$post->video->id}.mp4")}}>Ici la description alternative</video>
                             @forelse($post->comments as $comment)
                                 <div>comment:</div>
                                 <div>{{ $comment->comment }}</div>
@@ -44,7 +39,13 @@
 
 
                         @elseif($post->type == 2)
-                            <div>evenement (pas fait)</div>
+                            <div class="container">
+                                <div class="row">
+                                    <p>{{ $post->event->title }}</p>
+                                    <p>{{ $post->event->description }}</p>
+                                    <p>{{ $post->event->date }}</p>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>

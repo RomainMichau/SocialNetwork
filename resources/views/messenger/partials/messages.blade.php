@@ -1,7 +1,8 @@
 <div class="media">
     <a class="pull-left" href="#">
-        <img src="//www.gravatar.com/avatar/{{ md5($message->user->email) }} ?s=64"
+        <img src={{url("/img/profils/{$message->user->id}.png ?s=64")}} height='40px' width="40px"
              alt="{{ $message->user->name }}" class="img-circle">
+
     </a>
     <div class="media-body">
         <h5 class="media-heading">{{ $message->user->name }}</h5>

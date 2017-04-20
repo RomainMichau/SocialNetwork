@@ -4,13 +4,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<img class="img-responsive" src={{url("/img/couverture/{$user->id}.png")}} width="100%" height="345"> 
+				@if($user->couverture)
+					<img class="img-responsive" src={{url("/img/couverture/{$user->id}.png")}} width="100%" height="345">
+				@endif
 			</div>
 		</div>
 		
 		<div class="absolute" class="row">
 			<div class="col-md-4">
-				<img class="profil" src={{url("/img/profils/{$user->id}.png")}} >
+				@if($user->profil)
+					<img class="profil" src={{url("/img/profils/{$user->id}.png")}} >
+				@endif
 			</div>
 			<div class="col-md-5">
 				<p class="centrer" style="font-size: 20px">{{ $user->name }} </p>

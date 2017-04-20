@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Auth;
 
 class EventsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +28,7 @@ class EventsController extends Controller
         $events = array();
         foreach ($posts as $post)
         {
-            $events[] = Event::findOrFail($post->post_id);
+            $events[] = Event::findOrFail($post->event_id);
         }
         $events = collect($events)->sortBy('date');
         return view('admin.events.index',compact('events'));
