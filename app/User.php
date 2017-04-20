@@ -48,7 +48,7 @@ class User extends Authenticatable
                 $this->attributes['profil'] = true;
             }
         }
-        elseif ($profil == 1 || $profil == 0)
+        elseif ($profil == 1)
         {
             $this->attributes['profil'] = $profil;
         }
@@ -60,7 +60,7 @@ class User extends Authenticatable
                 $this->attributes['couverture'] = true;
             }
         }
-        elseif ($couverture == 1 || $couverture == 0)
+        elseif ($couverture == 1)
         {
             $this->attributes['couverture'] = $couverture;
         }
