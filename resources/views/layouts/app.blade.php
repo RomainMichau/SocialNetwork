@@ -20,7 +20,7 @@
 
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="http://blindlibrary.utah.gov/images/logoBook.gif">
+    <link rel="shortcut icon" type="image/x-icon" href="http://4.bp.blogspot.com/--LxlPGLy-pk/UU5Q0DsDjbI/AAAAAAAAAEw/a8WIm75AY6I/s1600/lcs009_1.jpg">
 
     <style>
         body {
@@ -62,7 +62,6 @@
                         <li><a href="{{ url('#') }}">Klichés</a></li>
                         <li><a href="{{ url('/admin/mur') }}">Kotidien</a></li>
                     @else
-                        <li><a href="{{ url('/users') }}">Klients</a></li>
                     @endif
                 </ul>
 

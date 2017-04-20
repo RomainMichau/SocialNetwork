@@ -2,13 +2,12 @@
     <div class="container">
         <div class="row">
             @if($post->voir==0)
-                {{"Moi uniquement"}}@endif
-            @if($post->voir==1)
-                {{"Amis"}}@endif
-            @if($post->voir==2)
+                {{"Moi uniquement"}}
+            @elseif($post->voir==1)
+                {{"Amis"}}
+            @elseif($post->voir==2)
                 {{"Public"}}
             @endif
-
         @if($post->type == 0)
                 <div class="publi">
 					<div class="row">
@@ -28,7 +27,6 @@
 						<div class="col-md-5" style="margin-top:10px; border: solid 1px #bbb;">
                             <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/mur',$post->id) }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
-
                                 @if(DB::table('likes')->select('like')->where([['post_id',$post->id],['user_id',Auth::user()->id]])->count()==0)
 
                                     <button value="1" type="submit" class="btn btn-primary btn-sm" name="avis">{{DB::table('likes')->select('like')->where([['post_id',$post->id],['like','1']])->count()}}<i class="em em---1"></i></button>

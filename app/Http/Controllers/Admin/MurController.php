@@ -31,11 +31,12 @@ class MurController extends Controller
         {
             if(Auth::user()->isFriendWith($friendship))
             {
-                $posts = array_merge($posts, $friendship->posts()->where('voir', '=', '1', 'OR', 'voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
+                $posts = array_merge($posts, $friendship->posts()->where('voir', '=', 1)->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
+                $posts = array_merge($posts, $friendship->posts()->where('voir', '=', 2)->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
             }
             else
             {
-                $posts = array_merge($posts, $friendship->posts()->where('voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
+                $posts = array_merge($posts, $friendship->posts()->where('voir', '=', 2)->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
             }
         }
 

@@ -36,10 +36,19 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        if($user->isFriendWith(Auth::user()))
-            $posts = $user->posts()->where('voir', '=', '1', 'OR', 'voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
-        else{
-            $posts = $user->posts()->where('voir', '=', '2')->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get();
+        $posts = array();
+        if($user->isFriendWith(Auth::user())){
+            $posts = array_merge($posts, $user->posts()->where('voir', '=', 1)->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
+            $posts = array_merge($posts, $user->posts()->where('voir', '=', 2)->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
+        }
+        else
+        {
+            $posts = array_merge($posts, $user->posts()->where('voir', '=', 2)->with('event')->with('photo')->with('video')->with('comments')->with('likes')->get()->toArray());
+        }
+        $posts = collect($posts)->sortBy('created_at')->reverse();
+        $posts = json_decode(json_encode($posts));
+        foreach ($posts as $post){
+            $post->comments=collect($post->comments)->sortBy('created_at')->reverse();
         }
         return view('admin.users.show', compact('posts'));
     }
