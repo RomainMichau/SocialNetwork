@@ -5,7 +5,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				@if($user->couverture)
-					<img class="img-responsive" src={{url("/img/couverture/{$user->id}.png")}} width="100%" height="345">
+					<div class="lee">
+						<img src={{url("/img/couverture/{$user->id}.png")}} width="100%" height="100%">
+					</div>
 				@endif
 			</div>
 		</div>

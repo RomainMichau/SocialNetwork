@@ -55,14 +55,14 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
-                        <li><a href="{{ url('/admin/events') }}">Chronologie</a></li>
-                        <li><a href="{{ url('/about') }}">A Propos</a></li>
-                        <li><a href="{{ url('/admin/users') }}">Utilisateur</a></li>
-                        <li><a href="{{ url('/admin/friends') }}">Amis</a></li>
-                        <li><a href="{{ url('#') }}">Photos</a></li>
+                        <li><a href="{{ url('/admin/events') }}">Kronologie</a></li>
+                        <li><a href="{{ url('/about') }}">Kouverture</a></li>
+                        <li><a href="{{ url('/admin/users') }}">Klients</a></li>
+                        <li><a href="{{ url('/admin/friends') }}">Kamarades</a></li>
+                        <li><a href="{{ url('#') }}">Klichés</a></li>
                         <li><a href="{{ url('/admin/mur') }}">Kotidien</a></li>
                     @else
-                        <li><a href="{{ url('/users') }}">Utilisateur</a></li>
+                        <li><a href="{{ url('/users') }}">Klients</a></li>
                     @endif
                 </ul>
 
@@ -70,17 +70,17 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}">Se Konnecter</a></li>
+                        <li><a href="{{ url('/register') }}">InsKription</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ "Message" }} <span class="caret"></span>
+                                {{ "Konversation" }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/messages') }}"><i class="fa fa-btn"></i>See Conv</a></li>
-                                <li><a href="{{ url('/messages/create') }}"><i class="fa fa-btn"></i>Create Conv</a></li>
+                                <li><a href="{{ url('/messages') }}"><i class="fa fa-btn"></i>Konversations</a></li>
+                                <li><a href="{{ url('/messages/create') }}"><i class="fa fa-btn"></i>Kréer une Konversation</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -89,7 +89,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Kitter</a></li>
                             </ul>
                         </li>
                     @endif

@@ -11,6 +11,7 @@
         "cmgmyr/messenger": "~2.0",
         "laravelcollective/html": "^5.2.0",
         "barryvdh/laravel-ide-helper": "^2.3"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -51,4 +52,5 @@
     "config": {
         "preferred-install": "dist"
     }
+	
 }
