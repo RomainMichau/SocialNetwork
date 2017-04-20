@@ -48,6 +48,10 @@ class User extends Authenticatable
                 $this->attributes['profil'] = true;
             }
         }
+        elseif ($profil == 1 || $profil == 0)
+        {
+            $this->attributes['profil'] = $profil;
+        }
     }
     public function setCouvertureAttribute($couverture){
         if(is_object($couverture)){
@@ -55,6 +59,10 @@ class User extends Authenticatable
                 $couverture->move(public_path() . "/img/couverture", "{$this->id}.png");
                 $this->attributes['couverture'] = true;
             }
+        }
+        elseif ($couverture == 1 || $couverture == 0)
+        {
+            $this->attributes['couverture'] = $couverture;
         }
     }
     use Friendable;
