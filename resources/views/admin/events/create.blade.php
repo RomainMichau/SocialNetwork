@@ -40,7 +40,7 @@
                             <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}"> <!-- Date input -->
                                 <label class="col-md-4 control-label" for="date">Date</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="date" name="date" value="{{ old('date') }}" placeholder="YYYY/MM/DD" type="text"/>
+                                    <input id="date" type="datetime-local" name="date" class="form-control"  value="{{ old('date') }}">
                                     @if ($errors->has('date'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('date') }}</strong>

@@ -150,8 +150,6 @@ return [
         Hootlex\Friendships\FriendshipsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
-		 Cmgmyr\Messenger\MessengerServiceProvider::class,
-
 
 
         /*
@@ -161,7 +159,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
     ],
 
     /*
@@ -209,6 +208,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
 
     ],
 
